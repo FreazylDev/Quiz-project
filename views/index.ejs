@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('partials/header.ejs') %>
+    <main>
+        <div class="card mainItemColor mainItemTextColor">
+            <h2>Start een game</h2>
+            <h4>Gebruik dit apparaat als host</h4>
+            <button id="startGame">Start!</button>
+        </div>
+        <div class="card mainItemColor mainItemTextColor">
+            <h2>Join een game</h2>
+            <h4>Gebruik dit apparaat om mee te doen aan een spel</h4>
+            <button id="joinGame">Join!</button>
+        </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

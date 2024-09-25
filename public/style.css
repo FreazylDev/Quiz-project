@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(18,33,49,255);
+}
+
+.mainColor {
+    background-color: rgba(18,33,49,255);
+}
+
+.mainTextColor {
+    color: hsl(0, 0%, 95%);
+}
+
+.secondColor {
+    background-color: rgba(12,20,32,255);
+}
+
+.mainItemColor {
+    background-color: hsl(0, 0%, 95%);
+}
+
+.mainItemColorHover {
+    background-color: hsl(0, 0%, 85%);
+}
+
+.mainItemTextColor {
+    color: hsl(0, 0%, 15%);
+}
+
+
+
+
+main {
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: clamp(200px, 80vw, 900px);
+}
+
+.card {
+    padding: 20px;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.card button {
+    margin-top: 40px;
+    background-color: rgb(13, 237, 13);
+    border: none;
+    padding: 20px;
+    border-radius: 13px;
+    width: 65%;
+    font-size: 1.4em;
+    font-weight: bold;
+    transition: .26s ease;
+}
+
+.card h2,
+.card h4 {
+    text-align: center;
+}
+
+.card button:hover {
+    background-color: rgb(71, 174, 71);
+}
+
+@media (max-width: 700px) {
+    main {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 30px;
+        width: clamp(300px, 60vw, 900px);
+    }
+}
