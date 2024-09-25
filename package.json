@@ -1,14 +1,15 @@
 {
   "dependencies": {
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.0",
     "nodemon": "^3.1.7",
+    "prompt-sync": "^4.2.0",
     "socket.io": "^4.8.0"
   },
   "name": "Quiz-project(main)",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

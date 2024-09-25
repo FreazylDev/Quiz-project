@@ -8,6 +8,8 @@ const io = socketIo(server);
 
 const { handleSocket } = require('./socket.io.js');
 
+require('dotenv').config();
+
 const PORT = 3000;
 
 
@@ -19,8 +21,20 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/info', (req, res) => {
+    res.render('info');
+});
 
-io.on('connection', handleSocket);
+app.get('/preGameHost', (req, res) => {
+    res.render('preGameHost');
+});
+
+app.get('/joinGame', (req, res) => {
+    res.render('joinGame');
+});
+
+
+io.on('connection', socket => handleSocket(socket, process.env.IP_ADDRESS));
 
 
 server.listen(PORT, () => console.log('Server listening on port:', PORT));

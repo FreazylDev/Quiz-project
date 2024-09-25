@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs') %>
+<head>
+    <style>
+        #hostCard.shake {
+    animation: shake .1234s;
+    animation-iteration-count: 4;
+}
+
+@keyframes shake {
+        0% {
+            transform: translate(0, 0) rotateX(0) rotateY(0);
+        }
+        25% {
+            transform: translate(-10px, 5px) rotateX(-10deg) rotateY(-5deg);
+        }
+        50% {
+            transform: translate(10px, -5px) rotateX(10deg) rotateY(5deg);
+        }
+        75% {
+            transform: translate(-10px, 5px) rotateX(-10deg) rotateY(-5deg);
+        }
+        100% {
+            transform: translate(0, 0) rotateX(0) rotateY(0);
+        }
+    }
+
+    </style>
+</head>
 <body>
     <%- include('partials/header.ejs') %>
     <main>
-        <div class="card mainItemColor mainItemTextColor">
+        <div id="hostCard" class="card mainItemColor mainItemTextColor">
             <h2>Start een game</h2>
             <h4>Gebruik dit apparaat als host</h4>
             <button id="startGame">Start!</button>
@@ -16,7 +43,7 @@
         </div>
     </main>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="main.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/create.js"></script>
 </body>
 </html>

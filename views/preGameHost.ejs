@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<head>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <main class="preGameHost">
+        <figure class="mainItemColor">
+            <img id="qrImg" alt="QR-code">
+            <h3 id="displayID"></h3>
+        </figure>
+        <div class="participants mainItemColor">
+            <h2>Deelnemers:</h2>
+            <ul id="participants"></ul>
+        </div>
+    </main>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const qrImg = document.getElementById('qrImg');
+        const displayID = document.getElementById('displayID');
+        const participants = document.getElementById('participants');
+
+        const qrSrc = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=';
+
+
+        window.onload = () => {
+            socket.emit('reqID');
+        }
+
+        socket.emit('joinHostRoom');
+
+        socket.on('resID', object => {
+            const fullURL = qrSrc + object.ip + ':3000/participant';
+            qrImg.src = fullURL + '&bgcolor=f1f1f1';
+            displayID.textContent = object.id;
+            setTimeout(() => {qrImg.classList = 'display'}, 500);
+        })
+
+        socket.on('joined', name => {
+            const li = document.createElement('li');
+            li.textContent = name;
+            li.id = name;
+            participants.appendChild(li);
+        })
+        socket.on('left', name => {
+            document.getElementById(name).remove();
+        });
+    </script>
+</body>
+</html>

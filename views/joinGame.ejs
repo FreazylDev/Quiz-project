@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <div class="container">
+        <h2>Typ je naam in om het spel te joinen:</h2>
+        <div class="name">
+            <input type="text" placeholder="Naam">
+            <button>Join!</button>
+        </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', () => socket.emit('joinGame', input.value));
+
+        socket.on('joinGameReturn', msg => {
+            console.log(msg);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+main.preGameHost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main.preGameHost figure {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 23px;
+    border-radius: 13px;
+    width: clamp(200px, 52vw, 500px);
+}
+
+#qrImg {
+    max-height: 0;
+    transition: 1s;
+    opacity: 0;
+}
+
+#qrImg.display {
+    max-height: 200px;
+    opacity: 1;
+}
+
+main.preGameHost .participants {
+    height: 200px;
+    border-radius: 10px;
+    width: clamp(200px, 51vw, 500px);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#participants {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px 20px;
+    list-style: none;
+    font-size: 1.45em;
+}
+
+#participants li {
+    box-shadow: 2px 3px 7px black;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
